@@ -27,7 +27,7 @@ public class Client {
     private String email;
 
     @OneToMany(mappedBy = "client")
-    private List<Shopping> shoppings;
+    private List<Purchase> purchases;
 
 
     public String getId() {

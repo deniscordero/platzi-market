@@ -5,20 +5,20 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
-public class ShoppingProductPK implements Serializable {
+public class PurchaseProductPK implements Serializable {
 
     @Column(name = "id_compra")
-    private Integer idShopping;
+    private Integer idPurchase;
 
     @Column(name = "id_producto")
     private Integer idProduct;
 
-    public Integer getIdShopping() {
-        return idShopping;
+    public Integer getIdPurchase() {
+        return idPurchase;
     }
 
-    public void setIdShopping(Integer idShopping) {
-        this.idShopping = idShopping;
+    public void setIdPurchase(Integer idPurchase) {
+        this.idPurchase = idPurchase;
     }
 
     public Integer getIdProduct() {

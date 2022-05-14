@@ -1,14 +1,13 @@
 package com.platzi.platzimarket.persistence.entity;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 @Table(name = "compras_productos")
-public class ShoppingProduct {
+public class PurchaseProduct {
 
     @EmbeddedId
-    private ShoppingProductPK id;
+    private PurchaseProductPK id;
 
     @Column(name = "cantidad")
     private Integer quantity;
@@ -20,17 +19,17 @@ public class ShoppingProduct {
 
     @ManyToOne
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
-    private Shopping shopping;
+    private Purchase purchase;
 
     @ManyToOne
-    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    @JoinColumn(name = "id_product", insertable = false, updatable = false)
     private Product product;
 
-    public ShoppingProductPK getId() {
+    public PurchaseProductPK getId() {
         return id;
     }
 
-    public void setId(ShoppingProductPK id) {
+    public void setId(PurchaseProductPK id) {
         this.id = id;
     }
 
@@ -56,5 +55,29 @@ public class ShoppingProduct {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Purchase getShopping() {
+        return purchase;
+    }
+
+    public void setShopping(Purchase purchase) {
+        this.purchase = purchase;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Purchase getPurchase() {
+        return purchase;
+    }
+
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
     }
 }
