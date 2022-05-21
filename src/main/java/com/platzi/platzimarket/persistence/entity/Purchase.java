@@ -2,6 +2,7 @@ package com.platzi.platzimarket.persistence.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -11,14 +12,13 @@ public class Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_compra")
-    private Integer idShopping;
-
+    private Integer idPurchase;
 
     @Column(name = "id_cliente")
     private String idClient;
 
     @Column(name = "fecha")
-    private LocalDate date;
+    private LocalDateTime date;
 
     @Column(name = "medio_pago")
     private Character paymentMethod;
@@ -33,16 +33,16 @@ public class Purchase {
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Client client;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "purchase", cascade = {CascadeType.ALL})
     private List<PurchaseProduct> products;
 
 
-    public Integer getIdShopping() {
-        return idShopping;
+    public Integer getIdPurchase() {
+        return idPurchase;
     }
 
-    public void setIdShopping(Integer idShopping) {
-        this.idShopping = idShopping;
+    public void setIdPurchase(Integer idPurchase) {
+        this.idPurchase = idPurchase;
     }
 
     public String getIdClient() {
@@ -53,11 +53,11 @@ public class Purchase {
         this.idClient = idClient;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

@@ -18,7 +18,7 @@ public class Client {
     private String surnames;
 
     @Column(name = "celular")
-    private Integer phoneNumber;
+    private Long phoneNumber;
 
     @Column(name = "direccion")
     private String address;
@@ -54,11 +54,11 @@ public class Client {
         this.surnames = surnames;
     }
 
-    public Integer getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
